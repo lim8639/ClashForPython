@@ -1,0 +1,12 @@
+from pyquery import PyQuery as pq
+
+file = open('user.html',encoding='utf-8')
+html = file.read()
+doc = pq(html)      # 传入HTML字符串
+str = doc('#app > div > div.main-content > section > div:nth-child(2) > div:nth-child(1) > div > div.card-stats > div > nav > ol > li')   # 传入CSS选择器
+print("到期时间",str.text())
+print("当前在线设备",doc('#app > div > div.main-content > section > div:nth-child(2) > div:nth-child(3) > div > div.card-wrap > div.card-body > span').text())     # 传入CSS选择器
+print("流量剩余",doc('#app > div > div.main-content > section > div:nth-child(2) > div:nth-child(2) > div > div.card-wrap > div.card-body > span').text(),"GB")     # 传入CSS选择器
+print("钱包余额",doc('#app > div > div.main-content > section > div:nth-child(2) > div:nth-child(4) > div > div.card-wrap > div.card-body > span').text())     # 传入CSS选择器
+print(doc('#app > div > div.main-content > section > div:nth-child(2) > div:nth-child(2) > div > div.card-wrap > div.card-stats > div > nav > ol > li').text())     # 传入CSS选择器
+
